@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PokemonModal from "./PokemonModal";
 
 function Pokedex() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -6,6 +7,11 @@ function Pokedex() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("all");
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [selectedSpecies, setSelectedSpecies] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalLoading, setModalLoading] = useState(false);
+  const [modalError, setModalError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -82,6 +88,35 @@ function Pokedex() {
       borderWidth: '2px',
       borderStyle: 'solid'
     };
+  };
+
+  const handleCardClick = async (pokemon) => {
+    setSelectedPokemon(pokemon);
+    setSelectedSpecies(null);
+    setModalError(null);
+    setModalLoading(true);
+    setModalOpen(true);
+    try {
+      const speciesResponse = await fetch(
+        `https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`
+      );
+      if (!speciesResponse.ok) {
+        throw new Error("Failed to fetch species data");
+      }
+      const speciesData = await speciesResponse.json();
+      setSelectedSpecies(speciesData);
+    } catch (e) {
+      setModalError(e.message);
+    } finally {
+      setModalLoading(false);
+    }
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedPokemon(null);
+    setSelectedSpecies(null);
+    setModalError(null);
   };
 
   if (loading) {
@@ -169,6 +204,7 @@ function Pokedex() {
               key={p.id} 
               className="pokemon-card"
               style={getPokemonCardStyle(p)}
+              onClick={() => handleCardClick(p)}
             >
               <div className="pokemon-image-container">
                 <img 
@@ -204,6 +240,17 @@ function Pokedex() {
           </div>
         )}
       </div>
+
+      {modalOpen && selectedPokemon && (
+        <PokemonModal 
+          pokemon={selectedPokemon}
+          species={selectedSpecies}
+          isLoading={modalLoading}
+          error={modalError}
+          onClose={closeModal}
+          getTypeColor={getTypeColor}
+        />
+      )}
     </div>
   );
 }
