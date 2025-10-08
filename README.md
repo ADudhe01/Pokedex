@@ -1,6 +1,6 @@
 # 🎮 Modern Pokédex App
 
-A sleek, modern Pokédex application built with React that allows you to explore and discover Pokémon from the original 151. Features a beautiful gradient design, smooth animations, and intuitive filtering capabilities.
+A sleek, modern Pokédex application built with React that allows you to explore and discover all 1,118 Pokémon from every region. Features a beautiful gradient design, smooth animations, and intuitive filtering capabilities.
 
 ![Pokédex Preview](https://img.shields.io/badge/React-18.2.0-blue?style=for-the-badge&logo=react)
 ![PokéAPI](https://img.shields.io/badge/PokéAPI-2.0-red?style=for-the-badge)
@@ -8,14 +8,15 @@ A sleek, modern Pokédex application built with React that allows you to explore
 
 ## ✨ Features
 
-- 🔍 **Smart Search** - Search Pokémon by name with real-time filtering
-- 🎨 **Type Filtering** - Filter Pokémon by their elemental types
+- 🔍 **Smart Search** - Search through all 1,118 Pokémon by name with real-time filtering
+- 🎨 **Type Filtering** - Filter Pokémon by their elemental types across all generations
 - 🌈 **Dynamic Color Coding** - Each Pokémon card is color-coded based on its primary type
 - 📱 **Responsive Design** - Beautiful on desktop, tablet, and mobile devices
 - ⚡ **Smooth Animations** - Hover effects, loading states, and smooth transitions
 - 🎯 **Modern UI** - Glassmorphism design with gradient backgrounds
 - 🔄 **Error Handling** - Graceful error states with retry functionality
 - 📊 **Results Counter** - See how many Pokémon match your search
+- 🌍 **Complete Pokédex** - All 1,118 Pokémon from every region and generation
 
 ## 🚀 Getting Started
 

@@ -1,7 +1,7 @@
 {
   "short_name": "Pokédex",
   "name": "Modern Pokédex - Pokémon Explorer",
-  "description": "Discover and explore the world of Pokémon with our sleek, interactive Pokédex featuring the original 151 Pokémon.",
+  "description": "Discover and explore the world of Pokémon with our sleek, interactive Pokédex featuring all 1,118 Pokémon from every region and generation.",
   "icons": [
     {
       "src": "favicon.svg",

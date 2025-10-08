@@ -13,7 +13,7 @@ function Pokedex() {
         setLoading(true);
         setError(null);
         const response = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=151"
+          "https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0"
         );
         
         if (!response.ok) {
