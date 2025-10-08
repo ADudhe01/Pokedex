@@ -16,6 +16,11 @@ body {
   line-height: 1.6;
 }
 
+/* Prevent background scroll when modal is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
 .App {
   min-height: 100vh;
   display: flex;

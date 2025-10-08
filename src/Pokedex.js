@@ -90,6 +90,16 @@ function Pokedex() {
     };
   };
 
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    return () => document.body.classList.remove('no-scroll');
+  }, [modalOpen]);
+
   const handleCardClick = async (pokemon) => {
     setSelectedPokemon(pokemon);
     setSelectedSpecies(null);
